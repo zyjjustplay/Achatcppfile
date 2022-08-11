@@ -104,6 +104,10 @@ void login(){
         }
     }
 }
+void disconnect(){
+    system("pause");
+    exit(0);
+}
 string bb[100];
 void mainfunc(){
     system("color F0");
@@ -172,6 +176,10 @@ void mainfunc(){
         }else if(strcmp(cs,"logout")==0){
             memset(lg,0,sizeof(lg));
             printf("Logged Out!\n");
+        }
+        else if(strcmp(cs,"disconnect")==0){
+            printf("Disconnected!\n");
+            disconnect();
         }else{
             printf("There's no such this command,Please check your input.\n");
             continue;
