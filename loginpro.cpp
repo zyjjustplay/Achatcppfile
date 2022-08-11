@@ -105,7 +105,7 @@ void login(){
     }
 }
 string bb[100];
-void mainfex(){
+void mainfunc(){
     system("color F0");
     printf("Please connect to the server first:");
     while(1==1){
