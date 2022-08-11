@@ -6,3 +6,4 @@
 `void register()`注册
 `void show_all()`查看所有人的密码‘哈希’值和用户名
 `void show_chats()`查看所有聊天
+把login.cpp下载保存到你需要用到的那个程序的相同目录，然后直接`#include "login.cpp"`
