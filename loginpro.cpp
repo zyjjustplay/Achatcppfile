@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<cstring>
+#include<map>
 #define ll long long
 using namespace std;
 const int qnum=114514;
@@ -12,16 +14,16 @@ int n2=0;
 char ip[100];
 bool check(char s[]){
 	int a=-1,b=-1,c=-1,d=-1,e=-1;
-	int t=sscanf(s,"%d.%d.%d.%d:%d",&a,&b,&c,&d,&e);//���Զ��룬������s��
-	if(t!=5) return 0;//û��5���϶�����
+	int t=sscanf(s,"%d.%d.%d.%d:%d",&a,&b,&c,&d,&e);
+	if(t!=5) return 0;
 	if(a<0||a>255) return 0;
 	if(b<0||b>255) return 0;
 	if(c<0||c>255) return 0;
 	if(d<0||d>255) return 0;
-	if(e<0||e>65535) return 0;//�ж�
+	if(e<0||e>65535) return 0;
 	char s2[35];
-	sprintf(s2,"%d.%d.%d.%d:%d",a,b,c,d,e);//������s2��
-	int lens=strlen(s);//�������ж�s2��s�Ƿ�һ��
+	sprintf(s2,"%d.%d.%d.%d:%d",a,b,c,d,e);
+	int lens=strlen(s);
 	bool ok=strcmp(s,s2)==0?1:0;
 	return ok;
 }
@@ -32,8 +34,7 @@ void showchats(){
 }
 void showall(){
     for(int i=0;i<n;i++){
-        cout<<"User name:"<<username[i];
-        printf(",Password 'Hash' Value:%x\n",a[username[i]]);
+        printf("Username:%s,Password 'Hash' Value:%x\n",username[i].c_str(),a[username[i]]);
     }
 }
 ll not_hash(char s[]){
@@ -105,6 +106,7 @@ void login(){
     }
 }
 void disconnect(){
+    printf("Disconnected!\n");
     system("pause");
     exit(0);
 }
@@ -138,8 +140,12 @@ void mainfunc(){
     system("cls");
     while(cin>>cs){
         if(strcmp(cs,"register")==0){
-            getchar();
-            registera();
+            if(a[lg]==0){
+                getchar();
+                registera();
+            }else{
+                printf("Please Logout first\n");
+            }
         }else if(strcmp(cs,"login")==0){
             if(a[lg]==0){
                 getchar();
@@ -157,8 +163,8 @@ void mainfunc(){
             }
         }else if(strcmp(cs,"user_name")==0){
             printf("User Name:%s\n",lg);
-        }else if(strcmp(cs,"show_chats")==0){
-            if(n==0)printf("No chat!\n");
+        }else if(strcmp(cs,"show_chat")==0){
+            if(n2==0)printf("No chat!\n");
             else showchats();
         }else if(strcmp(cs,"chat")==0){
             if(a[lg]!=0){
@@ -177,14 +183,12 @@ void mainfunc(){
             memset(lg,0,sizeof(lg));
             printf("Logged Out!\n");
         }
-        else if(strcmp(cs,"disconnect")==0){
-            printf("Disconnected!\n");
+        else if(strcmp(cs,"stop")==0){
             disconnect();
         }else{
             printf("There's no such this command,Please check your input.\n");
             continue;
         }
     }
-    system("pause");
-    return;
+    disconnect();
 }
