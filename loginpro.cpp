@@ -16,11 +16,9 @@ bool check(char s[]){
 	int a=-1,b=-1,c=-1,d=-1,e=-1;
 	int t=sscanf(s,"%d.%d.%d.%d:%d",&a,&b,&c,&d,&e);
 	if(t!=5) return 0;
-	//jjustfortest
 	if(a<0||a>255) return 0;
 	if(b<0||b>255) return 0;
 	if(c<0||c>255) return 0;
-	//justatest
 	if(d<0||d>255) return 0;
 	if(e<0||e>65535) return 0;
 	char s2[35];
