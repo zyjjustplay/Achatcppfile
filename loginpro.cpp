@@ -20,6 +20,7 @@ bool check(char s[]){
 	if(a<0||a>255) return 0;
 	if(b<0||b>255) return 0;
 	if(c<0||c>255) return 0;
+	//justatest
 	if(d<0||d>255) return 0;
 	if(e<0||e>65535) return 0;
 	char s2[35];
